@@ -83,7 +83,7 @@
                         Nope.
                         All is happening on your device only.
                         The <a href="https://webbluetoothcg.github.io/web-bluetooth/" target="_blank">W3C Web Bluetooth API</a> is designed with privacy in mind 🕵.
-                        Thus, the website <b>cannot access the list of devices</b> or any Bluetooth packets.
+                        Thus, the website <b>cannot</b> access the list of devices or any Bluetooth packets.
                         Moreover, there are no Ads, trackers, or cookies used on this website.
                     </p>
                     <h3 id="list">Why does the list of devices seem to change?</h3>
@@ -94,7 +94,7 @@
                     </p>
                     <h3 id="iphone">Does this website work on iPhones?</h3>
                     <p>
-                        <a href="https://caniuse.com/#feat=mdn-api_bluetooth">Nope</a> 😞. Apple's Safari on iOS (and Google Chrome on iPhone, and Firefox for iOS) does not support the <a href="https://webbluetoothcg.github.io/web-bluetooth/" target="_blank">W3C Web Bluetooth API</a> yet. But it might work on your Mac and Windows 10 computer, when you switch on Bluetooth and use Google Chrome.
+                        <a href="https://caniuse.com/#feat=mdn-api_bluetooth">Nope</a> 😞. Apple's Safari on iOS (and Google Chrome on iPhone, and Firefox for iOS) does not support the <a href="https://webbluetoothcg.github.io/web-bluetooth/" target="_blank">W3C Web Bluetooth API</a> yet. But it might work on your Mac and Windows 10 computer, when you enable Bluetooth and use Google Chrome.
                     </p>
                 </div>
             </div><!-- end row -->
@@ -113,7 +113,7 @@
                 document.getElementById('list-devices-btn').classList.add("btn-secondary");
                 document.getElementById('list-devices-btn').innerHTML = '😞 Does not work on iPhones!';
                 document.getElementById('helptext').classList.add("text-danger");
-                document.getElementById('helptext').innerHTML = "This website does not work on Apple iPhones/iPads/iPods.";
+                document.getElementById('helptext').innerHTML = "This website does not work on Apple iPhones/iPads/iPods, but it might work on your computer! 🤔";
             }
         </script>
         <script src="js/thirdparty/jquery-3.5.1.slim.min.js"></script>
