@@ -37,8 +37,8 @@
                     <li class="nav-item active"><a class="nav-link text-primary" href="./index.html#faq">FAQ</a></li>
                 </ul>
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a class="btn btn-outline-dark btn-sm" role="button" href="./contact.html"><i class="fas fa-info-circle"></i> Contact</a></li>
-                    <li class="nav-item"><a class="btn btn-outline-dark btn-sm" role="button" href="./privacy.html"><i class="fas fa-user-secret"></i> Privacy</a></li>
+                    <li class="nav-item"><a class="btn btn-outline-dark" role="button" href="./contact.html"><i class="fas fa-info-circle"></i> Contact</a></li>
+                    <li class="nav-item"><a class="btn btn-outline-dark" role="button" href="./privacy.html"><i class="fas fa-user-secret"></i> Privacy</a></li>
                 </ul>
             </div>
             </div><!-- end container -->
@@ -54,7 +54,7 @@
                     <button id="list-devices-btn" type="button" class="btn btn-primary btn-lg" onclick="navigator.bluetooth.requestDevice({filters:[{services:[0xfd6f]}]})"><i class="fas fa-mobile-alt"></i> List Nearby Devices</button>
                     <br>
                     <br>
-                    <p id="helptext">
+                    <p id="helptext" class="text-muted">
                         Does not work for you?<br>Try <i class="fab fa-chrome"></i>&nbsp;Google Chrome and use a modern <i class="fab fa-android"></i>&nbsp;Android device.
                     </p>
                 </div>
@@ -119,6 +119,7 @@
                 document.getElementById('list-devices-btn').classList.remove("btn-primary");
                 document.getElementById('list-devices-btn').classList.add("btn-secondary");
                 document.getElementById('list-devices-btn').innerHTML = '😞 Does not work on iPhones!';
+                document.getElementById('helptext').classList.remove("text-muted");
                 document.getElementById('helptext').classList.add("text-danger");
                 document.getElementById('helptext').innerHTML = "This website does not work on Apple iPhones/iPads/iPods, but it might work on your computer! 🤔";
             }
