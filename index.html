@@ -55,7 +55,7 @@
                     <br>
                     <br>
                     <p id="helptext" class="text-muted">
-                        Does not work for you?<br>Try <i class="fab fa-chrome"></i>&nbsp;Google Chrome and use a modern <i class="fab fa-android"></i>&nbsp;Android device.
+                        Does not work for you?<br>Enable <i class="fab fa-bluetooth"></i> Bluetooth and use <i class="fab fa-chrome"></i>&nbsp;Google Chrome.
                     </p>
                 </div>
             </div><!-- end row -->
@@ -111,7 +111,13 @@
         <script>
             var isChrome = /Chrome/.test(navigator.userAgent) && (/Google\ Inc/).test(navigator.vendor);
             if (!isChrome) {
-                document.getElementById('helptext').innerHTML = "Try to use the Google Chrome browser."
+                document.getElementById('list-devices-btn').disabled = true;
+                document.getElementById('list-devices-btn').classList.remove("btn-primary");
+                document.getElementById('list-devices-btn').classList.add("btn-secondary");
+                document.getElementById('list-devices-btn').innerHTML = '😞 Does not work with your browser!';
+                document.getElementById('helptext').classList.remove("text-muted");
+                document.getElementById('helptext').classList.add("text-danger");
+                document.getElementById('helptext').innerHTML = 'Sorry, this website does not work with your browser. Use <i class="fab fa-chrome"></i>&nbsp;Google Chrome or try again on your computer! 🤔';
             }
             var userAgent = window.navigator.userAgent;
             if (userAgent.match(/iPad/i) || userAgent.match(/iPhone/i)) {
@@ -121,7 +127,7 @@
                 document.getElementById('list-devices-btn').innerHTML = '😞 Does not work on iPhones!';
                 document.getElementById('helptext').classList.remove("text-muted");
                 document.getElementById('helptext').classList.add("text-danger");
-                document.getElementById('helptext').innerHTML = "This website does not work on Apple iPhones/iPads/iPods, but it might work on your computer! 🤔";
+                document.getElementById('helptext').innerHTML = 'Sorry, this website does not work on <i class="fab fa-apple"></i> Apple iPhones/iPads/iPods, but it might work on your computer! 🤔';
             }
         </script>
         <script src="js/thirdparty/jquery-3.5.1.slim.min.js"></script>
