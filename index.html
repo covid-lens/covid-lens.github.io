@@ -107,8 +107,8 @@
             </div><!-- end row -->
             <br><br>
         </div><!-- end container -->
-        <!-- For a higher usability we do some scripting -->
         <script>
+            // For a higher usability we do some scripting
             var isChrome = /Chrome/.test(navigator.userAgent) && (/Google\ Inc/).test(navigator.vendor);
             if (!isChrome) {
                 document.getElementById('list-devices-btn').disabled = true;
@@ -117,10 +117,9 @@
                 document.getElementById('list-devices-btn').innerHTML = '😞 Does not work with your browser!';
                 document.getElementById('helptext').classList.remove("text-muted");
                 document.getElementById('helptext').classList.add("text-danger");
-                document.getElementById('helptext').innerHTML = 'Sorry, this website does not work with your browser. Use <i class="fab fa-chrome"></i>&nbsp;Google Chrome or try again on your computer! 🤔';
+                document.getElementById('helptext').innerHTML = 'Sorry, this website does not work with your browser. Use <i class="fab fa-chrome"></i>&nbsp;Google Chrome and try again! 🤔';
             }
-            var userAgent = window.navigator.userAgent;
-            if (userAgent.match(/iPad/i) || userAgent.match(/iPhone/i)) {
+            if (navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPhone/i)) {
                 document.getElementById('list-devices-btn').disabled = true;
                 document.getElementById('list-devices-btn').classList.remove("btn-primary");
                 document.getElementById('list-devices-btn').classList.add("btn-secondary");
