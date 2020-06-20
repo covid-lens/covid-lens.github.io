@@ -1,0 +1,39 @@
+html, body {
+    width: 100%;
+}
+
+body > .container {
+    padding: 80px 15px 0;
+}
+
+/* Paper archive anchors */
+.anchor {
+    padding-top: 90px;
+}
+
+/* Start - button in navbar */
+.navbar .btn {
+    margin-right: 0.2rem;
+}
+@media (max-width: 768px) {
+    .navbar .btn {
+        margin-top: 0.2rem;
+    }
+}
+.btn-outline-dark:hover, .btn-outline-dark:focus, .btn-outline-dark:active, .btn-outline-dark.active, .open>.dropdown-toggle.btn-outline-dark {
+    color: #fff;
+    background-color: #28a745!important;
+    border-color: #28a745!important;
+}
+/* End - button in navbar */
+
+/* Offset for HTML anchors */
+h2:target {
+    padding-top: 65px;
+    margin-top: -65px;
+}
+
+h5:target {
+    padding-top: 65px;
+    margin-top: -65px;
+}
