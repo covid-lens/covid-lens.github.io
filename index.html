@@ -79,7 +79,7 @@
                     <h3 id="work">How does it work?</h3>
                     <p>
                         We use the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Bluetooth/requestDevice" target="_blank">Web Bluetooth API</a> that is available in <a href="https://caniuse.com/#feat=mdn-api_bluetooth" target="_blank">modern web browsers</a>.
-                        The listed devices should only include mobiles that have a <a href="https://www.apple.com/covid19/contacttracing" target="_blank">Google/Apple privacy-preserving contact tracing</a> app installed.
+                        The listed devices should only include mobiles that have a <a href="https://www.google.com/covid19/exposurenotifications/" target="_blank">Google/Apple privacy-preserving contact tracing</a> app installed.
                     </p>
                     <p>
                         The Bluetooth Low Energy-based <a href="https://blog.google/documents/70/Exposure_Notification_-_Bluetooth_Specification_v1.2.2.pdf" target="_blank">advertising payload</a> of COVID-19 <a href="https://en.wikipedia.org/wiki/Exposure_Notification" target="_blank">Exposure Notifications</a> include a special Service UUID.
@@ -89,7 +89,7 @@
                     <p>
                         Nope.
                         All is happening on your device only.
-                        The <a href="https://webbluetoothcg.github.io/web-bluetooth/" target="_blank">W3C Web Bluetooth API</a> is designed with privacy in mind 🕵.
+                        The <a href="https://webbluetoothcg.github.io/web-bluetooth/" target="_blank">Web Bluetooth API</a> is designed with privacy in mind 🕵.
                         Thus, the website <b>cannot</b> access the list of devices or any Bluetooth packets.
                         Moreover, there are no Ads, trackers, or cookies used on this website.
                     </p>
@@ -99,25 +99,80 @@
                         Thus, the <a href="https://en.wikipedia.org/wiki/MAC_address">MAC addresses</a> shown in your list are completely random and will change every 15 minutes.
                         Read more <a href="https://www.google.com/covid19/exposurenotifications/" target="_blank">here</a>.
                     </p>
-                    <h3 id="iphone">Does this website work on iPhones?</h3>
+                    <h3 id="iphone">Why does this website not work my phone/computer?</h3>
                     <p>
-                        <a href="https://caniuse.com/#feat=mdn-api_bluetooth">Nope</a> 😞. Apple's Safari on iOS (and Google Chrome on iPhone, and Firefox for iOS) does not support the <a href="https://webbluetoothcg.github.io/web-bluetooth/" target="_blank">W3C Web Bluetooth API</a> yet. But it might work on your Mac and Windows 10 computer, when you enable Bluetooth and use Google Chrome.
+                        Some platforms do not support the <a href="https://webbluetoothcg.github.io/web-bluetooth/" target="_blank">Web Bluetooth API</a> yet.
                     </p>
+                    <div class="table-responsive-sm">
+                    <table class="table table-sm">
+                      <thead>
+                        <tr>
+                          <th scope="col"></th>
+                          <th scope="col"><img src="img/browser/chrome.svg" width="32" alt="Google Chrome browser icon"> Chrome</th>
+                          <th scope="col"><img src="img/browser/firefox.svg" width="32" alt="Mozilla Firefox browser icon">Firefox</th>
+                          <th scope="col"><img src="img/browser/safari.svg" width="32" alt="Apple Safari browser icon">Safari</th>
+                          <th scope="col"><img src="img/browser/edge.svg" width="32" alt="Microsoft Edge browser icon">Edge</th>
+                          <th scope="col"><img src="img/browser/opera.svg" width="32" alt=" Opera Software Opera browser icon">Opera</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row"><img src="img/os/android.svg" width="24" alt="Android icon"></th>
+                          <td class="align-middle success">Yes</td>
+                          <td class="align-middle danger">No</td>
+                          <td class="align-middle light">-</td>
+                          <td class="align-middle success">Yes</td>
+                          <td class="align-middle success">Yes</td>
+                        </tr>
+                        <tr>
+                          <th scope="row"><img src="img/os/ios.svg" width="24" alt="iOS icon"></th>
+                          <td class="align-middle danger">No</td>
+                          <td class="align-middle danger">No</td>
+                          <td class="align-middle danger">No</td>
+                          <td class="align-middle danger">No</td>
+                          <td class="align-middle danger">No</td>
+                        </tr>
+                        <tr>
+                          <th scope="row"><img src="img/os/windows.svg" width="24" alt="Windows icon"></th>
+                          <td class="align-middle success">Yes</td>
+                          <td class="align-middle danger">No</td>
+                          <td class="align-middle light">-</td>
+                          <td class="align-middle success">Yes</td>
+                          <td class="align-middle success">Yes</td>
+                        </tr>
+                        <tr>
+                          <th scope="row"><img src="img/os/macos.svg" width="20" alt="macOS icon"></th>
+                          <td class="align-middle success">Yes</td>
+                          <td class="align-middle danger">No</td>
+                          <td class="align-middle danger">No</td>
+                          <td class="align-middle success">Yes</td>
+                          <td class="align-middle success">Yes</td>
+                        </tr>
+                        <tr>
+                          <th scope="row"><img src="img/os/linux.svg" width="20" alt="Linux icon"></th>
+                          <td class="align-middle warning">Maybe</td>
+                          <td class="align-middle danger">No</td>
+                          <td class="align-middle light">-</td>
+                          <td class="align-middle light">-</td>
+                          <td class="align-middle warning">Maybe</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                </div>
                 </div>
             </div><!-- end row -->
             <br><br>
         </div><!-- end container -->
         <script>
             // For a higher usability we do some scripting
-            var isChrome = /Chrome/.test(navigator.userAgent) && (/Google\ Inc/).test(navigator.vendor);
-            if (!isChrome) {
+            if (navigator.bluetooth === undefined) {
                 document.getElementById('list-devices-btn').disabled = true;
                 document.getElementById('list-devices-btn').classList.remove("btn-primary");
                 document.getElementById('list-devices-btn').classList.add("btn-secondary");
                 document.getElementById('list-devices-btn').innerHTML = '😞 Does not work with your browser!';
                 document.getElementById('helptext').classList.remove("text-muted");
                 document.getElementById('helptext').classList.add("text-danger");
-                document.getElementById('helptext').innerHTML = 'Sorry, this website does not work with your browser. Use <i class="fab fa-chrome"></i>&nbsp;Google Chrome and try again! 🤔';
+                document.getElementById('helptext').innerHTML = 'Sorry, this website does not work with your browser. Try <i class="fab fa-chrome"></i>&nbsp;Google Chrome on Android, Windows, or macOS! 🤔';
             }
             if (navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPhone/i)) {
                 document.getElementById('list-devices-btn').disabled = true;

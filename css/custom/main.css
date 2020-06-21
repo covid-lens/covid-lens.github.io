@@ -37,3 +37,16 @@ h5:target {
     padding-top: 65px;
     margin-top: -65px;
 }
+
+.success {
+    background-color: #e4f8e1;
+}
+.danger {
+    background-color: #f8e1e1;
+}
+.warning {
+    background-color: #ffeeba;
+}
+.light {
+    background-color: rgba(0,0,0,.075);
+}
